@@ -30,7 +30,7 @@ class SitemapPlugin(plugins.SingletonPlugin):
         cached_view = self.cache.cached(timeout=3600*24)(views.view)
         bp = Blueprint(u'sitemap', self.__module__)
         bp.add_url_rule(u'/sitemap.xml', view_func=cached_view)
-        app.register_extension_blueprint(bp)
+        app.register_blueprint(bp)
 
         return app
 
